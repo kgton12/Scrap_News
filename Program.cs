@@ -123,10 +123,10 @@ namespace MyNamespace
 
             foreach (HtmlNode link in content)
             {
-                noticia = $"{noticia} {link.InnerHtml}";
+                noticia = $"{noticia} {link.InnerText}";
             }
 
-            //implementar update.
+            //implementar update. <-------------------
 
             Console.ReadLine();
         }
