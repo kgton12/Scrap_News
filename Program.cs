@@ -10,11 +10,11 @@ namespace MyNamespace
         {
             Console.WriteLine("Iniciando processo.");
 
-            Captura_url_OD();
+            Captura_url();
             Processa_url();
             Console.WriteLine("Processo finalizada.");
         }
-        public static void Insere_url_DB(List<string> list, string origem)
+        public static void Insere_url_DB(List<string> list)
         {
             using (SQLiteConnection c = new SQLiteConnection(Retorna_sql_conn()))
             {
@@ -22,7 +22,7 @@ namespace MyNamespace
                 Console.WriteLine("Cadastrando URLs.");
                 foreach (var item in list)
                 { 
-                    string sql = $"INSERT INTO url_news (url,site) VALUES ('{item}','{origem}' )";
+                    string sql = $"INSERT INTO url_news (url) VALUES ('{item}' )";
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, c))
                     {
                         cmd.ExecuteNonQuery();
@@ -36,24 +36,21 @@ namespace MyNamespace
             {
                 c.Open();
                 string sql = $"SELECT * FROM url_news";
-                List<string> list_url_OD = new List<string>();
+                List<string> list_url = new List<string>();
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, c))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
-                        {
-                            if (reader["site"].ToString() == "OD")
-                            {
-                                list_url_OD.Add(reader["url"].ToString());                                
-                            }
+                        {                           
+                           list_url.Add(reader["url"].ToString());                              
                         }
                     }
                 }
-                Carrega_news_OD(list_url_OD);
+                Carrega_news(list_url);
             }
         }
-        public static void Carrega_news_OD(List<string> urls)
+        public static void Carrega_news(List<string> urls)
         {
             Console.WriteLine("Atualizando titulo e noticia.");
             foreach (var url in urls)
@@ -104,7 +101,7 @@ namespace MyNamespace
             string conn = $"Data Source=" + CurrentDirectory + "\\banco.db;";
             return conn;
         }
-        public static void Captura_url_OD()
+        public static void Captura_url()
         {
             HtmlWeb hw = new HtmlWeb();
             HtmlDocument doc = new HtmlDocument();
@@ -118,7 +115,7 @@ namespace MyNamespace
                 string hrefValue = link.GetAttributeValue("href", string.Empty);
                 list_url.Add(hrefValue);
             }
-            Insere_url_DB(list_url, "OD");
+            Insere_url_DB(list_url);
         }
     }
 }
