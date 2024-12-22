@@ -1,74 +1,118 @@
-# Scrap_News
+# 📚 Scrap_News Project Overview
 
-Em resumo é um projeto para fins de estudo onde eu capturo notícias de vários sites.
+## 📝 Project Description
+The **Scrap_News** project is designed for educational purposes to capture news articles from various websites. It uses web scraping techniques to extract:
+- 🌐 URLs
+- 📰 Titles
+- ✍️ Content  
 
-## Estrutura do Projeto
+All extracted data is stored in a **SQLite database** for further analysis.
 
-Este workspace contém os seguintes projetos:
+---
 
-### Scrap_News
+## ✨ Features
+- 🌍 **URL Capture**: Retrieves URLs of news articles from specified websites.  
+- 📝 **Content Extraction**: Extracts titles and content from the captured URLs.  
+- 🗄️ **Database Storage**: Saves the extracted data into a SQLite database.  
 
-- **Descrição**: Projeto principal que captura notícias de vários sites.
-- **Localização**: [Scrap_News.csproj](Scrap_News.csproj)
-- **Dependências**:
-  - HtmlAgilityPack (v1.11.42)
-  - Selenium.Support (v4.1.0)
-  - Selenium.WebDriver (v4.1.0)
-  - Selenium.WebDriver.ChromeDriver (v100.0.4896.6000)
-  - System.Data.SQLite (v1.0.115.5)
-- **Arquivos Principais**:
-  - [Program.cs](Program.cs): Contém o ponto de entrada do aplicativo.
-  - [Scrap_News.sln](Scrap_News.sln): Arquivo de solução do Visual Studio.
+---
 
-### Scrap_olhar_digital
+## 📦 Libraries Used
 
-- **Descrição**: Projeto específico para capturar notícias do site Olhar Digital.
-- **Localização**: [Scrap_olhar_digital.csproj](Scrap_olhar_digital.csproj.nuget.dgspec.json)
-- **Dependências**: As mesmas do projeto principal, pois compartilham o mesmo ambiente de execução.
+### 🔧 HtmlAgilityPack
+- **Version**: 1.11.42  
+- **Description**: A powerful HTML parser for manipulating HTML documents.  
+- **Usage**:
+  - Loading HTML documents from URLs.  
+  - Selecting and extracting specific HTML nodes.  
 
-## Como Executar
+### 🚗 Selenium.Support
+- **Version**: 4.1.0  
+- **Description**: Provides additional support classes for Selenium WebDriver.  
+- **Usage**: Included but not actively used in the current implementation.  
 
-1. **Clone o repositório**:
-	```sh
-	git clone <URL_DO_REPOSITORIO>
-	cd Scrap_News
-	```
+### 🌐 Selenium.WebDriver
+- **Version**: 4.1.0  
+- **Description**: Automates browser actions and testing across multiple browsers.  
+- **Usage**: Included but not actively used in the current implementation.  
 
-2. **Restaure as dependências**:
-	```sh
-	dotnet restore
-	```
+### 🌟 Selenium.WebDriver.ChromeDriver
+- **Version**: 100.0.4896.6000  
+- **Description**: Implements the WebDriver protocol for Chrome.  
+- **Usage**: Included but not actively used in the current implementation.  
 
-3. **Compile o projeto**:
-	```sh
-	dotnet build
-	```
+### 📂 System.Data.SQLite
+- **Version**: 1.0.115.5  
+- **Description**: An ADO.NET provider for SQLite databases.  
+- **Usage**:
+  - Connecting to the SQLite database.  
+  - Executing SQL commands for inserting, updating, and retrieving data.  
 
-4. **Execute o projeto**:
-	```sh
-	dotnet run --project Scrap_News
-	```
+---
 
-## Estrutura de Pastas
+## 🏗️ Project Structure
+- **`Program.cs`**: Main application logic including methods for:
+  - Capturing URLs  
+  - Processing URLs  
+  - Extracting content  
+  - Database interaction  
+- **`Scrap_News.csproj`**: Defines dependencies and target framework.  
+- **`Scrap_News.sln`**: Visual Studio solution file.  
 
-- `.vs/`: Configurações específicas do Visual Studio.
-- `bin/`: Saída de compilação.
-- `obj/`: Arquivos temporários de build.
-- `Scrap_News.csproj`: Arquivo de projeto do .NET.
-- `Scrap_News.sln`: Arquivo de solução do Visual Studio.
-- `Program.cs`: Ponto de entrada do aplicativo.
-- `README.md`: Este arquivo.
+---
 
-## Contribuição
+## 🚀 How to Run the Project
 
-Sinta-se à vontade para contribuir com este projeto. Para isso, siga os passos abaixo:
+1. **Clone the repository**:  
+   ```bash
+   git clone https://github.com/yourusername/Scrap_News.git
+## 🔧 Restore Dependencies
 
-1. Faça um fork do projeto.
-2. Crie uma nova branch (`git checkout -b feature/nova-feature`).
-3. Faça commit das suas alterações (`git commit -am 'Adiciona nova feature'`).
-4. Faça push para a branch (`git push origin feature/nova-feature`).
-5. Crie um novo Pull Request.
+```bash
+dotnet restore
+```
 
-## Licença
+## 📇 Build the Project
 
-Este projeto é licenciado sob a [MIT License](LICENSE).
+```bash
+dotnet build
+```
+
+## 🚀 Run the Project
+
+```bash
+dotnet run
+```
+
+---
+
+## 🤝 Contribution
+
+Contributions are welcome! Follow these steps:
+
+1. Fork the project.
+
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/new-feature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -am 'Add new feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/new-feature
+   ```
+5. Create a Pull Request.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+🎉 Happy coding!
+
